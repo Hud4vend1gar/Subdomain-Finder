@@ -1,12 +1,14 @@
 class Subdomain_Finder():
     def __init__(self,url,wordlist = "wordlist.txt") -> None:
 
-        self.input_url = url
+        self.input_url = str(url)
+        self.input_url = self.input_url.strip()
         self.wordlist = wordlist
         
 
     def check_domains(self):
-        import requests        
+        import requests      
+
         #google.com
         with open(file=f"app/{self.wordlist}",mode="r") as subdomains:
             for word in subdomains:
@@ -14,9 +16,27 @@ class Subdomain_Finder():
                 subdomain_url = f"http://{word}.{self.input_url}"
 
                 try:
-                    check_subdomain = requests.get(url=subdomain_url)
+                    requests.get(url=subdomain_url)
                     print(f"[+] {subdomain_url}")
                 
-                except:
+                except:                    
                     continue
+
+    def check_network(self):
+
+        import urllib.request
+
+        def connect():
+            try:
+                urllib.request.urlopen("http://google.com") #Python 3.x
+                return True
+            except:
+                return False  
+
+        if connect() == True:
+            pass
+        else:
+            print("\n --> Please check your connection and try again ...\n")
+
+
             
