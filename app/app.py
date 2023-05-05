@@ -1,9 +1,10 @@
 class Subdomain_Finder():
-    def __init__(self,url,wordlist = "wordlist.txt") -> None:
+    def __init__(self,url,wordlist = "Subdomain.txt") -> None:
 
         self.input_url = str(url)
         self.input_url = self.input_url.strip()
         self.wordlist = wordlist
+        print("\nSubdomain Finder Running ...")
         
 
     def check_domains(self):

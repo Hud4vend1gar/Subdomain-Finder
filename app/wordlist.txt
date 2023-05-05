@@ -1,7 +1,0 @@
-test
-admin
-news
-blog
-deneme
-test1
-test2
