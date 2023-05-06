@@ -1,4 +1,5 @@
 class Subdomain_Finder():
+
     def __init__(self,url,wordlist = "Subdomain.txt") -> None:
 
         self.input_url = str(url)
@@ -8,7 +9,7 @@ class Subdomain_Finder():
         
 
     def check_domains(self):
-        import requests      
+        import requests
 
         #google.com
         with open(file=f"app/{self.wordlist}",mode="r") as subdomains:
@@ -20,15 +21,17 @@ class Subdomain_Finder():
                     requests.get(url=subdomain_url)
                     print(f"[+] {subdomain_url}")
                 
-                except:                    
+                except:
                     continue
 
     def check_network(self):
 
-        import urllib.request
+
 
         def connect():
+
             try:
+                import urllib.request
                 urllib.request.urlopen("http://google.com") #Python 3.x
                 return True
             except:
