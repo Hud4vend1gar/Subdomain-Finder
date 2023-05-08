@@ -15,7 +15,7 @@ class Subdomain_Finder():
         with open(file=f"app/{self.wordlist}",mode="r") as subdomains:
             for word in subdomains:
                 word = word.strip()
-                subdomain_url = f"http://{word}.{self.input_url}"
+                subdomain_url = f"www.{word}.{self.input_url}"
 
                 try:
                     requests.get(url=subdomain_url)
